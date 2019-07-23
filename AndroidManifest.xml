@@ -19,13 +19,13 @@
 -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.launcher3"
+    package="com.android.pixelated"
     coreApp="true"
     android:sharedUserId="android.uid.system">
     <uses-sdk android:targetSdkVersion="23" android:minSdkVersion="21"/>
     <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
     <!--
-    Manifest entries specific to Launcher3. This is merged with AndroidManifest-common.xml.
+    Manifest entries specific to pixelated. This is merged with AndroidManifest-common.xml.
     Refer comments around specific entries on how to extend individual components.
     -->
 
@@ -35,13 +35,13 @@
     name in the permissions. eq com.mypackage.permission.READ_SETTINGS
     -->
     <permission
-        android:name="com.android.launcher3.permission.READ_SETTINGS"
+        android:name="com.android.pixelated.permission.READ_SETTINGS"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
         android:protectionLevel="normal"
         android:label="@string/permlab_read_settings"
         android:description="@string/permdesc_read_settings"/>
     <permission
-        android:name="com.android.launcher3.permission.WRITE_SETTINGS"
+        android:name="com.android.pixelated.permission.WRITE_SETTINGS"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
         android:protectionLevel="signature|privileged"
         android:label="@string/permlab_write_settings"
@@ -52,12 +52,12 @@
 
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
-    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.android.pixelated.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.pixelated.permission.WRITE_SETTINGS" />
     <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB" />
 
     <application
-        android:backupAgent="com.android.launcher3.LauncherBackupAgent"
+        android:backupAgent="com.android.pixelated.LauncherBackupAgent"
         android:fullBackupOnly="true"
         android:fullBackupContent="@xml/backupscheme"
         android:hardwareAccelerated="true"
@@ -72,7 +72,7 @@
         attributes and intent filters the same
         -->
         <activity
-            android:name="com.android.launcher3.Launcher"
+            android:name="com.android.pixelated.Launcher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
@@ -95,7 +95,7 @@
         The settings activity. When extending keep the intent filter present
         -->
         <activity
-            android:name="com.android.launcher3.SettingsActivity"
+            android:name="com.android.pixelated.SettingsActivity"
             android:label="@string/settings_button_text"
             android:autoRemoveFromRecents="true">
             <intent-filter>
@@ -113,7 +113,7 @@
         </service>
 
         <activity
-            android:name="com.android.launcher3.ChooseIconActivity"
+            android:name="com.android.pixelated.ChooseIconActivity"
             android:autoRemoveFromRecents="true"
             android:theme="@style/ChooseIconTheme" />
 
@@ -123,13 +123,13 @@
         represent the package name.
         -->
         <provider
-            android:name="com.android.launcher3.LauncherProvider"
-            android:authorities="com.android.launcher3.settings"
+            android:name="com.android.pixelated.LauncherProvider"
+            android:authorities="com.android.pixelated.settings"
             android:exported="true"
-            android:writePermission="com.android.launcher3.permission.WRITE_SETTINGS"
-            android:readPermission="com.android.launcher3.permission.READ_SETTINGS" />
+            android:writePermission="com.android.pixelated.permission.WRITE_SETTINGS"
+            android:readPermission="com.android.pixelated.permission.READ_SETTINGS" />
 
-        <receiver android:name="com.android.launcher3.pixelui.WeatherUpdateReceiver" android:permission="android.permission.CAPTURE_AUDIO_HOTWORD">
+        <receiver android:name="com.android.pixelated.pixelui.WeatherUpdateReceiver" android:permission="android.permission.CAPTURE_AUDIO_HOTWORD">
             <intent-filter>
                 <action android:name="com.google.android.apps.nexuslauncher.updateweather"/>
             </intent-filter>
@@ -137,7 +137,7 @@
         <!-- ENABLE_FOR_TESTING
 
         <activity
-            android:name="com.android.launcher3.testing.LauncherExtension"
+            android:name="com.android.pixelated.testing.LauncherExtension"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
@@ -154,7 +154,7 @@
         </activity>
 
         <activity
-            android:name="com.android.launcher3.testing.MemoryDumpActivity"
+            android:name="com.android.pixelated.testing.MemoryDumpActivity"
             android:theme="@android:style/Theme.NoDisplay"
             android:label="* HPROF"
             android:excludeFromRecents="true"
@@ -168,7 +168,7 @@
         </activity>
 
         <activity
-            android:name="com.android.launcher3.testing.ToggleWeightWatcher"
+            android:name="com.android.pixelated.testing.ToggleWeightWatcher"
             android:label="Show Mem"
             android:icon="@mipmap/ic_launcher_home">
             <intent-filter>
@@ -178,7 +178,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.android.launcher3.testing.MemoryTracker" />
+        <service android:name="com.android.pixelated.testing.MemoryTracker" />
 
         -->
 

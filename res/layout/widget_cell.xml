@@ -13,7 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.android.launcher3.widget.WidgetCell
+<com.android.pixelated.widget.WidgetCell
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
@@ -25,4 +25,4 @@
     android:orientation="vertical">
 
     <include layout="@layout/widget_cell_content" />
-</com.android.launcher3.widget.WidgetCell>
+</com.android.pixelated.widget.WidgetCell>

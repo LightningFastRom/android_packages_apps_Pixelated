@@ -16,7 +16,7 @@
 <!-- The top and bottom paddings are defined in this container, but since we want
      the list view to span the full width (for touch interception purposes), we
      will bake the left/right padding into that view's background itself. -->
-<com.android.launcher3.widget.WidgetsContainerView
+<com.android.pixelated.widget.WidgetsContainerView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:id="@+id/widgets_view"
@@ -43,7 +43,7 @@
         android:elevation="15.0dip"
         android:visibility="gone">
 
-        <com.android.launcher3.widget.WidgetsRecyclerView
+        <com.android.pixelated.widget.WidgetsRecyclerView
             android:id="@+id/widgets_list_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
@@ -60,4 +60,4 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
     </FrameLayout>
-</com.android.launcher3.widget.WidgetsContainerView>
+</com.android.pixelated.widget.WidgetsContainerView>

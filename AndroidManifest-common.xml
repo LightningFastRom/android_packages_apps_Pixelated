@@ -19,13 +19,13 @@
 -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.launcher3"
+    package="com.android.pixelated"
     coreApp="true"
     android:sharedUserId="android.uid.system">
     <uses-sdk android:targetSdkVersion="23" android:minSdkVersion="21"/>
 
     <!--
-    The manifest defines the common entries that should be present in any derivative of Launcher3.
+    The manifest defines the common entries that should be present in any derivative of pixelated.
     The components should generally not require any changes.
 
     Rest of the components are defined in AndroidManifest.xml which is merged with this manifest
@@ -49,7 +49,7 @@
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
     <application
-        android:backupAgent="com.android.launcher3.LauncherBackupAgent"
+        android:backupAgent="com.android.pixelated.LauncherBackupAgent"
         android:fullBackupOnly="true"
         android:fullBackupContent="@xml/backupscheme"
         android:hardwareAccelerated="true"
@@ -61,7 +61,7 @@
 
         <!-- Intent received used to install shortcuts from other applications -->
         <receiver
-            android:name="com.android.launcher3.InstallShortcutReceiver"
+            android:name="com.android.pixelated.InstallShortcutReceiver"
             android:permission="com.android.launcher.permission.INSTALL_SHORTCUT">
             <intent-filter>
                 <action android:name="com.android.launcher.action.INSTALL_SHORTCUT" />
@@ -69,13 +69,13 @@
         </receiver>
 
         <!-- Intent received used to initialize a restored widget -->
-        <receiver android:name="com.android.launcher3.AppWidgetsRestoredReceiver" >
+        <receiver android:name="com.android.pixelated.AppWidgetsRestoredReceiver" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_HOST_RESTORED"/>
             </intent-filter>
         </receiver>
 
-        <service android:name="com.android.launcher3.dynamicui.ColorExtractionService"
+        <service android:name="com.android.pixelated.dynamicui.ColorExtractionService"
             android:exported="false"
             android:process=":wallpaper_chooser">
         </service>

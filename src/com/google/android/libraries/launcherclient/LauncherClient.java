@@ -108,7 +108,7 @@ public class LauncherClient {
             .appendQueryParameter("v", Integer.toString(0))
             .build();
 
-        return new Intent("com.android.launcher3.WINDOW_OVERLAY")
+        return new Intent("com.android.pixelated.WINDOW_OVERLAY")
             .setPackage(targetPackage)
             .setData(uri);
     }

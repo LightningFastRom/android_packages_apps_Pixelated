@@ -47,13 +47,16 @@ LOCAL_AAPT_FLAGS := \
     --auto-add-overlay \
     --extra-packages android.support.v7.recyclerview \
 
-LOCAL_PACKAGE_NAME := Launcher3
+LOCAL_SDK_VERSION := current
+LOCAL_MIN_SDK_VERSION := 21
+LOCAL_PACKAGE_NAME := Pixelated
 LOCAL_CERTIFICATE := platform
-LOCAL_OVERRIDES_PACKAGES := Home Launcher2
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_OVERRIDES_PACKAGES := Home Launcher2 Launcher3
 
 LOCAL_FULL_LIBS_MANIFEST_FILES := $(LOCAL_PATH)/AndroidManifest-common.xml
 
-LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.launcher3.*
+LOCAL_JACK_COVERAGE_INCLUDE_FILTER := com.android.pixelated.*
 
 include $(BUILD_PACKAGE)
 

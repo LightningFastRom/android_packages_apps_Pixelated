@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher3.shortcuts.DeepShortcutView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.pixelated.shortcuts.DeepShortcutView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/bg_popup_item_width"
     android:layout_height="@dimen/bg_popup_item_height">
 
-    <com.android.launcher3.BubbleTextView
+    <com.android.pixelated.BubbleTextView
         android:id="@+id/bubble_text"
 		style="@style/BubbleText"
         android:background="?android:selectableItemBackground"
@@ -33,4 +33,4 @@
         android:layout_gravity="end|bottom|center"
         android:background="?android:listDivider"
         android:visibility="gone" />
-</com.android.launcher3.shortcuts.DeepShortcutView>
+</com.android.pixelated.shortcuts.DeepShortcutView>

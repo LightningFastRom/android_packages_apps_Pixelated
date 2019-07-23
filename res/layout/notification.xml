@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher3.notification.NotificationItemView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.android.pixelated.notification.NotificationItemView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/notification_view"
     android:layout_width="@dimen/bg_popup_item_width"
     android:layout_height="wrap_content"
@@ -64,4 +64,4 @@
             android:layout_height="@dimen/notification_footer_height"
             android:layout_below="@id/divider" />
     </RelativeLayout>
-</com.android.launcher3.notification.NotificationItemView>
+</com.android.pixelated.notification.NotificationItemView>
