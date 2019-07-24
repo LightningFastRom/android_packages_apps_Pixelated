@@ -80,6 +80,7 @@
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="nosensor"
             android:configChanges="keyboard|keyboardHidden|navigation"
+            android:excludeFromRecents="true"
             android:resumeWhilePausing="true"
             android:taskAffinity=""
             android:enabled="true">
