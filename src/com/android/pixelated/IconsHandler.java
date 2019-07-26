@@ -66,12 +66,21 @@ public class IconsHandler {
     private static final String TAG = "IconsHandler";
 
     private static String[] LAUNCHER_INTENTS = new String[] {
-        "com.fede.launcher.THEME_ICONPACK",
-        "com.anddoes.launcher.THEME",
-        "com.teslacoilsw.launcher.THEME",
-        "com.gau.go.launcherex.theme",
-        "org.adw.launcher.THEMES",
-        "org.adw.launcher.icons.ACTION_PICK_ICON"
+    	"com.fede.launcher.THEME_ICONPACK",
+		"com.anddoes.launcher.THEME",
+		"com.teslacoilsw.launcher.THEME",
+		"com.gau.go.launcherex.theme",
+		"org.adw.launcher.THEMES",
+		"org.adw.launcher.icons.ACTION_PICK_ICON",
+		"com.dlto.atom.launcher.THEME",
+		"com.novalauncher.THEME",
+		"mobi.bbase.ahome.THEME",
+		"com.rogro.GDE.THEME.1",
+		"com.daeva112.manager.THEME",
+		"com.android.dxtop.launcher.THEME",
+		"ginlemon.smartlauncher.THEMES",
+		"com.tsf.shell.themes"
+
     };
 
     private Map<String, IconPackInfo> mIconPacks = new HashMap<>();
