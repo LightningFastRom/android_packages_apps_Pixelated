@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.net.Uri;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -83,13 +84,16 @@ public class SettingsActivity extends Activity {
             mDefaultIconPack = getString(R.string.default_iconpack_title);
             mIconsHandler = IconCache.getIconsHandler(getActivity().getApplicationContext());
             mIconPack = (Preference) findPreference(Utilities.KEY_ICON_PACK);
-
-            boolean state = Utilities.getPrefs(getActivity()).getBoolean(
+			
+			// Disable Google Now as it broken Todo: Need fixing
+            /*boolean state = Utilities.getPrefs(getActivity()).getBoolean(
                     Utilities.ACTION_LEFT_PAGE_CHANGED, true);
-
             mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
-            mShowGoogleApp.setChecked(state);
-
+            mShowGoogleApp.setChecked(false);*/
+			
+			mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
+			preference.removePreference(mShowGoogleApp);
+			
             mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
             // Load the switch preference if the service isn't enabled in notification access settings.
             if (isNotificationBadgeEnabled()) {
@@ -148,15 +152,22 @@ public class SettingsActivity extends Activity {
                 startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
                 return true;
             }
-            if (pref == mShowGoogleApp) {
-                boolean state = Utilities.getPrefs(getActivity()).getBoolean(
-                        Utilities.ACTION_LEFT_PAGE_CHANGED, true);
-                Utilities.getPrefs(getActivity()).edit().putBoolean(
-                        Utilities.ACTION_LEFT_PAGE_CHANGED, !state).commit();
-                Intent intent = new Intent(Utilities.ACTION_LEFT_PAGE_CHANGED);
-                getActivity().sendBroadcast(intent);
-                return true;
-            }
+            // Disable Google Now as it broken Todo: Need fixing
+            /*if (pref == mShowGoogleApp) {
+				if (!Settings.canDrawOverlays(this)) {
+    				/*Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, 
+					Uri.parse("package:" + getActivity().getApplicationContext().getPackageName()));
+    				startActivityForResult(intent, 0);
+				} else {
+                	boolean state = Utilities.getPrefs(getActivity()).getBoolean(
+                        	Utilities.ACTION_LEFT_PAGE_CHANGED, true);
+                	Utilities.getPrefs(getActivity()).edit().putBoolean(
+                        	Utilities.ACTION_LEFT_PAGE_CHANGED, !state).commit();
+                	Intent intent = new Intent(Utilities.ACTION_LEFT_PAGE_CHANGED);
+                	getActivity().sendBroadcast(intent);
+				}
+				return true;
+            }*/
             return false;
         }
 

@@ -75,6 +75,7 @@ import android.text.TextUtils;
 import android.text.method.TextKeyListener;
 import android.util.Log;
 import android.util.Pair;
+import android.net.Uri;
 import android.view.Display;
 import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
@@ -254,17 +255,18 @@ public class Launcher extends Activity
     private final BroadcastReceiver mNowPageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (Utilities.ACTION_LEFT_PAGE_CHANGED.equals(intent.getAction())) {
+			// Disable Google Now as it broken Todo: Need fixing
+            /*if (Utilities.ACTION_LEFT_PAGE_CHANGED.equals(intent.getAction())) {
                 if (mLauncherTab != null) {
                     mLauncherTabEnabled = isLauncherTabEnabled();
                     mLauncherTab.updateLauncherTab(mLauncherTabEnabled);
                     if (!mLauncherTabEnabled) {
                         mLauncherTab.getClient().onDestroy();
                     } else {
-                        mLauncherTab.getClient().onAttachedToWindow();
+                       mLauncherTab.getClient().onAttachedToWindow();
                     }
                 }
-            }
+            }*/
         }
     };
 
@@ -537,13 +539,14 @@ public class Launcher extends Activity
 
         IntentFilter filter = new IntentFilter(ACTION_APPWIDGET_HOST_RESET);
         registerReceiver(mUiBroadcastReceiver, filter);
-
-        IntentFilter nowPageFilter = new IntentFilter(Utilities.ACTION_LEFT_PAGE_CHANGED);
+		
+		// Disable Google Now as it broken Todo: Need fixing
+        /*IntentFilter nowPageFilter = new IntentFilter(Utilities.ACTION_LEFT_PAGE_CHANGED);
         registerReceiver(mNowPageReceiver, nowPageFilter);
 
         mLauncherTabEnabled = isLauncherTabEnabled();
 
-        mLauncherTab = new LauncherTab(this, mLauncherTabEnabled);
+        mLauncherTab = new LauncherTab(this, mLauncherTabEnabled);*/
 
         mRotationEnabled = getResources().getBoolean(R.bool.allow_rotation);
         // In case we are on a device with locked rotation, we should look at preferences to check
@@ -590,6 +593,15 @@ public class Launcher extends Activity
             }
         }
     }
+	// Disable Google Now Todo: Need fixing
+	/*public final static int REQUEST_CODE = -1010101;
+	public void checkDrawOverlayPermission() {
+    	/** check if we already  have permission to draw over other apps *\/
+    	if (!Settings.canDrawOverlays(getApplicationContext())) {
+        	/** request permission via start activity for result *\/
+        	startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getApplicationContext().getPackageName())), REQUEST_CODE);
+    	}
+	}*/
 
     @Override
     public void onExtractedColorsChanged() {
@@ -955,6 +967,24 @@ public class Launcher extends Activity
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onActivityResult(requestCode, resultCode, data);
         }
+		// Disable Google Now as it's broken Todo: Need fixing
+		/*if (requestCode == REQUEST_CODE) {
+       		/* if so check once again if we have permission *\/
+       		if (Settings.canDrawOverlays(this)) {
+				// continue here - permission was granted 
+				//if (Utilities.ACTION_LEFT_PAGE_CHANGED.equals(intent.getAction())) {
+					if (mLauncherTab != null) {
+						mLauncherTabEnabled = isLauncherTabEnabled();
+						mLauncherTab.updateLauncherTab(mLauncherTabEnabled);
+						if (!mLauncherTabEnabled) {
+							mLauncherTab.getClient().onDestroy();
+						} else {
+							mLauncherTab.getClient().onAttachedToWindow();
+						}
+					}
+				//}
+       		}
+    	}*/
     }
 
     /** @Override for MNC */
@@ -1921,10 +1951,11 @@ public class Launcher extends Activity
             return true;
         }
     });
-
-    private boolean isLauncherTabEnabled() {
+	
+	// Disable Google Now as it broken Todo: Need fixing
+    /*private boolean isLauncherTabEnabled() {
         return Utilities.getPrefs(this).getBoolean(Utilities.ACTION_LEFT_PAGE_CHANGED, true);
-    }
+    }*/
 
     private void addWidgetToAutoAdvanceIfNeeded(View hostView, AppWidgetProviderInfo appWidgetInfo) {
         if (appWidgetInfo == null || appWidgetInfo.autoAdvanceViewId == -1) return;
