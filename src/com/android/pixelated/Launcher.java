@@ -237,8 +237,9 @@ public class Launcher extends Activity
     private static int NEW_APPS_PAGE_MOVE_DELAY = 500;
     private static int NEW_APPS_ANIMATION_INACTIVE_TIMEOUT_SECONDS = 5;
     @Thunk static int NEW_APPS_ANIMATION_DELAY = 500;
-
-    private boolean mLauncherTabEnabled;
+	
+	// Disable Google Now as it broken Todo: Need fixing
+    // private boolean mLauncherTabEnabled;
 
     private final BroadcastReceiver mUiBroadcastReceiver = new BroadcastReceiver() {
 
@@ -251,12 +252,12 @@ public class Launcher extends Activity
             }
         }
     };
-
-    private final BroadcastReceiver mNowPageReceiver = new BroadcastReceiver() {
+	
+	// Disable Google Now as it broken Todo: Need fixing
+    /*private final BroadcastReceiver mNowPageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-			// Disable Google Now as it broken Todo: Need fixing
-            /*if (Utilities.ACTION_LEFT_PAGE_CHANGED.equals(intent.getAction())) {
+            if (Utilities.ACTION_LEFT_PAGE_CHANGED.equals(intent.getAction())) {
                 if (mLauncherTab != null) {
                     mLauncherTabEnabled = isLauncherTabEnabled();
                     mLauncherTab.updateLauncherTab(mLauncherTabEnabled);
@@ -266,9 +267,9 @@ public class Launcher extends Activity
                        mLauncherTab.getClient().onAttachedToWindow();
                     }
                 }
-            }*/
+            }
         }
-    };
+    };*/
 
     @Thunk Workspace mWorkspace;
     private View mLauncherView;
@@ -405,7 +406,7 @@ public class Launcher extends Activity
     public ViewGroupFocusHelper mFocusHandler;
     private boolean mRotationEnabled = false;
 
-    private LauncherTab mLauncherTab;
+    // private LauncherTab mLauncherTab;
     private PopupDataProvider mPopupDataProvider;
 
     // icon pack
@@ -1215,10 +1216,11 @@ public class Launcher extends Activity
             mAllAppsController.showDiscoveryBounce();
         }
         mIsResumeFromActionScreenOff = false;
-
-        if (mLauncherTabEnabled) {
+		
+		// Disable Google Now as it's broken Todo: Need fixing
+        /*if (mLauncherTabEnabled) {
             mLauncherTab.getClient().onResume();
-        }
+        }*/
 
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onResume();
@@ -1240,10 +1242,11 @@ public class Launcher extends Activity
         if (mWorkspace.getCustomContentCallbacks() != null) {
             mWorkspace.getCustomContentCallbacks().onHide();
         }
-
-        if (mLauncherTabEnabled) {
+		
+		// Disable Google Now as it's broken Todo: Need fixing
+        /*if (mLauncherTabEnabled) {
             mLauncherTab.getClient().onPause();
-        }
+        }*/
 
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onPause();
@@ -1834,9 +1837,10 @@ public class Launcher extends Activity
         mAttached = true;
         mVisible = true;
 
-        if (mLauncherTabEnabled) {
+        // Disable Google Now as it's broken Todo: Need fixing
+		/*if (mLauncherTabEnabled) {
             mLauncherTab.getClient().onAttachedToWindow();
-        }
+        }*/
 		
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onAttachedToWindow();
@@ -1854,9 +1858,10 @@ public class Launcher extends Activity
         }
         updateAutoAdvanceState();
 
-        if (mLauncherTabEnabled) {
+        // Disable Google Now as it's broken Todo: Need fixing
+		/*if (mLauncherTabEnabled) {
             mLauncherTab.getClient().onDetachedFromWindow();
-        }
+        }*/
 
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onDetachedFromWindow();
@@ -2092,9 +2097,10 @@ public class Launcher extends Activity
                 mWidgetsView.scrollToTop();
             }
 
-            if (mLauncherTabEnabled) {
+            // Disable Google Now as it's broken Todo: Need fixing
+			/*if (mLauncherTabEnabled) {
                 mLauncherTab.getClient().hideOverlay(true);
-            }
+            }*/
 
             if (mIconPackDialog != null) {
                 mIconPackDialog.dismiss();
@@ -2217,12 +2223,13 @@ public class Launcher extends Activity
 
         LauncherAnimUtils.onDestroyActivity();
 
-        unregisterReceiver(mNowPageReceiver);
+        // Disable Google Now as it's broken Todo: Need fixing
+		/*unregisterReceiver(mNowPageReceiver);
         if (mLauncherTabEnabled) {
             mLauncherTab.getClient().onDestroy();
-        }
-
-        if (mLauncherCallbacks != null) {
+        }*/
+        
+		if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onDestroy();
         }
     }
