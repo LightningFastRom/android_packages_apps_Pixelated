@@ -94,15 +94,16 @@ public class SettingsActivity extends Activity {
 			mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
 			preference.removePreference(mShowGoogleApp);
 			
-            mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
+			// Enable NotificationBadges Todo: Need fixing
+            /*mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
             // Load the switch preference if the service isn't enabled in notification access settings.
             if (isNotificationBadgeEnabled()) {
                 if (mNotificationBadges != null) {
                     // If the service is enabled, remove the preference.
                     preference.removePreference(mNotificationBadges);
                 }
-            }
-
+            }*/
+			
             // Setup allow rotation preference
             Preference rotationPref = findPreference(Utilities.ALLOW_ROTATION_PREFERENCE_KEY);
             if (getResources().getBoolean(R.bool.allow_rotation)) {
@@ -196,7 +197,8 @@ public class SettingsActivity extends Activity {
          * Checks whether the notification badge service is enabled.
          * @return True if enabled, false otherwise.
          */
-        private boolean isNotificationBadgeEnabled(){
+		// Enable NotificationBadges Todo: Need fixing
+       /*private boolean isNotificationBadgeEnabled(){
             ContentResolver resolver = getActivity().getApplicationContext().getContentResolver();
             String packageName = getActivity().getApplicationContext().getPackageName();
             final String setting = Settings.Secure.getString(resolver,
@@ -213,7 +215,7 @@ public class SettingsActivity extends Activity {
                 }
             }
             return false;
-        }
+        }*/
     }
 
     /**

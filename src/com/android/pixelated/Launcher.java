@@ -593,6 +593,7 @@ public class Launcher extends Activity
             }
         }
     }
+    
 	// Disable Google Now Todo: Need fixing
 	/*public final static int REQUEST_CODE = -1010101;
 	public void checkDrawOverlayPermission() {
