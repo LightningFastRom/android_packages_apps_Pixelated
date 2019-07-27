@@ -154,8 +154,9 @@ public final class Utilities {
     public static final String ALLOW_ROTATION_PREFERENCE_KEY = "pref_allowRotation";
     public static final String KEY_ICON_PACK = "pref_iconPacks";
     public static final String KEY_NOTIFICATION_BADGES = "pref_enableNotificationBadges";
-    public static final String KEY_SHOW_GOOGLE_APP = "pref_showGoogleApp";
-    public static final String ACTION_LEFT_PAGE_CHANGED = "com.android.pixelated.intent.ACTION_LEFT_PAGE_CHANGED";
+	// Disable Google Now as it broken Todo: Need fixing
+    // public static final String KEY_SHOW_GOOGLE_APP = "pref_showGoogleApp";
+    // public static final String ACTION_LEFT_PAGE_CHANGED = "com.android.pixelated.intent.ACTION_LEFT_PAGE_CHANGED";
 
     public static boolean isPropertyEnabled(String propertyName) {
         return Log.isLoggable(propertyName, Log.VERBOSE);

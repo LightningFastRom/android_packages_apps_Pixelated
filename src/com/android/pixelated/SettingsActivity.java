@@ -90,14 +90,10 @@ public class SettingsActivity extends Activity {
                     Utilities.ACTION_LEFT_PAGE_CHANGED, true);
             mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
             mShowGoogleApp.setChecked(false);*/
-			
-			mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
-			preference.removePreference(mShowGoogleApp);
-			
-			// Enable NotificationBadges Todo: Need fixing
-            /*mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
+		
+            mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
             // Load the switch preference if the service isn't enabled in notification access settings.
-            if (isNotificationBadgeEnabled()) {
+            /*if (isNotificationBadgeEnabled()) {
                 if (mNotificationBadges != null) {
                     // If the service is enabled, remove the preference.
                     preference.removePreference(mNotificationBadges);
