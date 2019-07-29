@@ -18,7 +18,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Gerinal Setting -->
-    <PreferenceCategory android:title="@string/general_setting_title">
+    <PreferenceCategory 
+		android:title="@string/gerinal_category_title"
+		android:key="cat_general" >
 
         <Preference
             android:key="pref_enableNotificationBadges"
@@ -28,7 +30,9 @@
     </PreferenceCategory>
 
     <!--Layout Setting -->
-    <PreferenceCategory android:title="@string/layout_setting_title">
+    <PreferenceCategory 
+		android:title="@string/layout_category_title" 
+		android:key="cat_layout" >
 
         <!--Todo: need implementing -->
         <ListPreference
@@ -39,16 +43,6 @@
 			android:defaultValue="Apple"
             android:summary="@string/selected_layout"
             android:title="@string/select_layout_title"/>
-
-    </PreferenceCategory>
-
-    <!--Apprence Setting -->
-    <PreferenceCategory android:title="@string/apprence_setting_title">
-
-        <Preference
-            android:key="pref_iconPacks"
-            android:title="@string/icon_pack_title"
-            android:icon="@drawable/icon_pack" />
 
         <!-- Disable Google Now as it broken Todo: Need fixing -->
         <SwitchPreference
@@ -67,6 +61,18 @@
             android:key="pref_showAllAppIcon"
             android:title="@string/show_all_app_icon_title"
             android:summary="@string/show_all_app_icon_summary" />
+
+    </PreferenceCategory>
+
+    <!--Apprence Setting -->
+    <PreferenceCategory 
+		android:title="@string/apprence_category_title" 
+		android:key="apprencePrefrenceCategory" >
+
+        <Preference
+            android:key="pref_iconPacks"
+            android:title="@string/icon_pack_title"
+            android:icon="@drawable/icon_pack" />
 
         <!-- Todo: need implementing -->
         <SwitchPreference
@@ -89,7 +95,9 @@
 	</PreferenceCategory>
 
     <!--Behavior Setting -->
-    <PreferenceCategory android:title="@string/behavior_setting_title">
+    <PreferenceCategory 
+		android:title="@string/behavior_category_title" 
+		android:key="cat_behavior" >
 		<!-- Todo: need implementing -->
         <SwitchPreference
             android:key="pref_togglePulldownSearch"

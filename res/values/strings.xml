@@ -287,16 +287,16 @@
 	<!-- Setting -->
 	<!-- Setting Catgoeris -->
 	<!-- Gerinal Setting -->
-    <string name="general_setting_title">General</string>
+    <string name="general_category_title">General</string>
 
 	<!-- Layout -->
-    <string name="layout_setting_title">Layout</string>
+    <string name="layout_category_title">Layout</string>
 
 	<!-- Apprence -->
-    <string name="apprence_setting_title">Apprence</string>
+    <string name="apprence_category_title">Apprence</string>
 	
 	<!-- Behavior -->
-	<string name="behavior_setting_title">Behavior</string>
+	<string name="behavior_category_title">Behavior</string>
 	
 	<!-- Setting Control -->
     <!-- Notification Badges -->

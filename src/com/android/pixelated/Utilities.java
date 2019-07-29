@@ -150,6 +150,11 @@ public final class Utilities {
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(
             CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE,
             TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+	
+	public static final String KEY_GENERAL_PREFRENCE_CATEGORY = "cat_general";
+	public static final String KEY_LAYOUT_PREFRENCE_CATEGORY = "cat_layout";
+    public static final String KEY_APPRENCE_PREFRENCE_CATEGORY = "cat_apprence";
+    public static final String KEY_BEHAVIOR_PREFRENCE_CATEGORY = "cat_behavior";
 
     public static final String ALLOW_ROTATION_PREFERENCE_KEY = "pref_allowRotation";
     public static final String KEY_ICON_PACK = "pref_iconPacks";
