@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="settings_list_preference_titles">
+    <string-array name="layout_list_titles">
         <item>iPhone</item>
         <item>Pixel</item>
         <item>Samsung 1UI</item>
         <item>Oxigen</item>
     </string-array>
-    <string-array name="settings_list_preference_values">
+    <string-array name="layout_list_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
