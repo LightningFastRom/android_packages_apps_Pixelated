@@ -76,7 +76,7 @@ public class SettingsActivity extends Activity {
         private SwitchPreference mShowAllAppIcon;
 		private SwitchPreference mToggleLightStausbar;
         private SwitchPreference mToggleLegacyFolderIcon;
-        private SwitchPreference mSetDockOpacityn;
+        private SwitchPreference mSetDockOpacity;
 		private SwitchPreference mTogglePulldownSearch;
         private SwitchPreference mHapticFeedback;
 		
@@ -122,7 +122,6 @@ public class SettingsActivity extends Activity {
 			/* Todo: need implementing */
 			mSelectLayout = (ListPreference) findPreference(Utilities.KEY_SELECT_LAYOUT);
 			mSelectLayout.setEnabled(false);
-			mSelectLayout.setChecked(false);
 			
 			/* Todo: need implementing */
 			mShowAllAppIcon = (SwitchPreference) findPreference(Utilities.KEY_SHOW_ALL_APP_ICON);
