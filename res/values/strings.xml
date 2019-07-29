@@ -283,11 +283,70 @@
     <string name="notifications_header">Notifications</string>
     <string name="widgets_bottom_sheet_title">%1$s widgets</string>
 
+
+	<!-- Setting -->
+	<!-- Setting Catgoeris -->
+	<!-- Gerinal Setting -->
+    <string name="gerinal_setting_title">Gerinal</string>
+
+	<!-- Layout -->
+    <string name="layout_setting_title">Layout</string>
+
+	<!-- Apprence -->
+    <string name="apprence_setting_title">Apprence</string>
+	
+	<!-- Behavior -->
+	<string name="behavior_setting_title">Behavior</string>
+	
+	<!-- Setting Control -->
     <!-- Notification Badges -->
     <string name="notification_badges_title">Notification badges</string>
     <string name="notification_badges_title_summary">Enable notification access to obtain notification badges</string>
 
-	<!-- Show Google App -->
-	<string name="show_google_app_title">Show Google app</string>
-	<string name="show_google_app_summary">When swiping left from the homescreen</string>
+    <!-- Select Layout -->
+	<string name="select_layout_title">Select Layout</string>
+	<string name="selected_layout"></string>
+	<string name="item_apple_title">Apple</string>
+	<string name="item_pixel_title">Pixel</string>
+	<string name="item_legacy_title">Pixel</string>
+
+    <!-- Show Google App -->
+    <string name="show_google_app_title">Show Google app</string>
+    <string name="show_google_app_summary">When swiping left from the homescreen</string>
+
+    <!-- Show QSB On First Screen  -->
+    <string name="show_Qsb_title">Toggle QSB On First Screen</string>
+	<string name="show_Qsb_summary">Comming Soon</string>
+    <!-- <string name="show_google_app_summary">When on show QSB On First Screen</string> -->
+
+    <!-- Show Google App -->
+    <string name="show_Qsb_title">Show QSB</string>
+    <string name="show_Qsb_summary">Comming Soon</string>
+	<!-- <string name="show_Qsb_summary">When swiping left from the homescreen</string> -->
+
+    <!-- Show All App Icon -->
+    <string name="show_all_app_icon_title">Show all app icon</string>
+	<string name="show_all_app_icon_summary">Comming Soon</string>
+	<!-- <string name="show_google_app_summary">Old school app drawer</string> -->
+
+    <!-- Toggle Pull Down Search -->
+    <string name="toggle_pulldown_search_title">Toggle pullDown search</string>
+	<string name="toggle_pulldown_search_summary">Comming Soon</string>
+	<!-- <string name="toggle_pulldown_search_summary">When swiping from the homescreen</string> -->
+
+    <!-- Toggle Light Stausbar -->
+    <string name="toggle_light_stausbar_title">Toggle light stausbar</string>
+	<string name="toggle_light_stausbar_summary">Comming Soon</string>
+	<!-- <string name="show_google_app_summary">When enabled the status bar may show dark icons based \n on the top of the wallpaper.</string> -->
+
+    <!-- Set Dock Opacity -->
+    <string name="set_dock_opacity_title">Set dock opacity</string>
+	<string name="set_dock_opacity_summary">Comming Soon</string>
+	<!-- <string name="set_dock_opacity_summary">Change dock background opacity</string> -->
+
+    <!-- Toggle Haptic Feedback -->
+    <string name="toggle_haptic_feedback_title">Toggle haptic feedback</string>
+	<string name="toggle_haptic_feedback_summary">Comming Soon</string>
+	<!-- <string name="toggle_haptic_feedback_summary">When enabled long pressing on an icon cause the device to vibrate</string> -->
+
 </resources>

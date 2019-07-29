@@ -75,6 +75,7 @@ import com.android.pixelated.config.FeatureFlags;
 import com.android.pixelated.dragndrop.DragLayer;
 import com.android.pixelated.dragndrop.DragView;
 import com.android.pixelated.util.Thunk;
+import com.android.pixelated.AppContext;
 
 import java.util.ArrayList;
 
@@ -88,15 +89,15 @@ public class FolderIcon extends FrameLayout implements FolderListener {
     private float mBadgeScale;
     private Rect mTempBounds = new Rect();
     private Point mTempSpaceForBadgeOffset = new Point();
- 
     @Thunk Launcher mLauncher;
     @Thunk Folder mFolder;
     private FolderInfo mInfo;
     @Thunk static boolean sStaticValuesDirty = true;
-
-    public static final int NUM_ITEMS_IN_PREVIEW = FeatureFlags.pixelated_LEGACY_FOLDER_ICON ?
+	static Context mContext;
+    public static final int NUM_ITEMS_IN_PREVIEW = FeatureFlags.pixelated_LEGACY_FOLDER_ICON /*Utilities.enableLegacyFolderIcon(mLauncher)*/ ?
             StackFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW :
             ClippedFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW;
+			
 
     private CheckLongPressHelper mLongPressHelper;
     private StylusEventHelper mStylusEventHelper;
@@ -151,7 +152,7 @@ public class FolderIcon extends FrameLayout implements FolderListener {
     private void init() {
         mLongPressHelper = new CheckLongPressHelper(this);
         mStylusEventHelper = new StylusEventHelper(new SimpleOnStylusPressListener(this), this);
-        mPreviewLayoutRule = FeatureFlags.pixelated_LEGACY_FOLDER_ICON ?
+        mPreviewLayoutRule = FeatureFlags.pixelated_LEGACY_FOLDER_ICON /*Utilities.enableLegacyFolderIcon(mLauncher)*/ ?
                 new StackFolderIconLayoutRule() :
                 new ClippedFolderIconLayoutRule();
     }
@@ -942,7 +943,7 @@ public class FolderIcon extends FrameLayout implements FolderListener {
             PreviewItemDrawingParams p = mDrawingParams.get(i);
             p.drawable = getTopDrawable((TextView) items.get(i));
 
-            if (!animate || FeatureFlags.pixelated_LEGACY_FOLDER_ICON) {
+            if (!animate || FeatureFlags.pixelated_LEGACY_FOLDER_ICON /*Utilities.enableLegacyFolderIcon(mLauncher)*/) {
                 computePreviewItemDrawingParams(i, nItemsInPreview, p);
                 if (mReferenceDrawable == null) {
                     mReferenceDrawable = p.drawable;

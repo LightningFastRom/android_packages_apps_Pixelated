@@ -49,6 +49,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.Interpolator;
+import com.android.pixelated.Utilities;
 
 import com.android.pixelated.pageindicators.PageIndicator;
 import com.android.pixelated.util.LauncherEdgeEffect;
@@ -209,7 +210,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
         mPageIndicatorViewId = a.getResourceId(R.styleable.PagedView_pageIndicator, -1);
         a.recycle();
 
-        setHapticFeedbackEnabled(false);
+        setHapticFeedbackEnabled(Utilities.enableHapticFeedback(context));
         mIsRtl = Utilities.isRtl(getResources());
         init();
     }

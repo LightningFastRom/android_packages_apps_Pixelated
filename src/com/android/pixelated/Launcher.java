@@ -145,6 +145,7 @@ import com.android.pixelated.util.ViewOnDrawExecutor;
 import com.android.pixelated.widget.PendingAddWidgetInfo;
 import com.android.pixelated.widget.WidgetHostViewLoader;
 import com.android.pixelated.widget.WidgetsContainerView;
+import com.android.pixelated.Utilities;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -1536,7 +1537,7 @@ public class Launcher extends Activity
         setupOverviewPanel();
 
         // Setup the workspace
-        mWorkspace.setHapticFeedbackEnabled(false);
+        mWorkspace.setHapticFeedbackEnabled(Utilities.enableHapticFeedback(this));
         mWorkspace.setOnLongClickListener(this);
         mWorkspace.setup(mDragController);
         // Until the workspace is bound, ensure that we keep the wallpaper offset locked to the

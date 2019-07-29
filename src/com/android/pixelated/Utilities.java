@@ -155,9 +155,29 @@ public final class Utilities {
     public static final String KEY_ICON_PACK = "pref_iconPacks";
     public static final String KEY_NOTIFICATION_BADGES = "pref_enableNotificationBadges";
 	// Disable Google Now as it broken Todo: Need fixing
-    // public static final String KEY_SHOW_GOOGLE_APP = "pref_showGoogleApp";
-    // public static final String ACTION_LEFT_PAGE_CHANGED = "com.android.pixelated.intent.ACTION_LEFT_PAGE_CHANGED";
-
+    public static final String KEY_SHOW_GOOGLE_APP = "pref_showGoogleApp";
+    //public static final String ACTION_LEFT_PAGE_CHANGED = "com.android.pixelated.intent.ACTION_LEFT_PAGE_CHANGED";
+	
+	public static final String KEY_SHOW_QSB = "pref_showQsb";
+	public static final String KEY_SELECT_LAYOUT = "pref_selectLayout";
+    public static final String KEY_SHOW_ALL_APP_ICON = "pref_showAllAppIcon";
+    public static final String KEY_TOGGLE_LIGHT_STATUSBAR = "pref_toggleLightStausbar";
+	public static final String KEY_TOGGLE_LEGACY_FOLDER_ICON = "pref_toggleLegacyFolderIcon";
+    public static final String KEY_SET_DOCK_OPACITY = "pref_setDockOpacity";
+    public static final String KEY_TOGGLE_PULLDOWN_SEARCH = "pref_togglePulldownSearch";
+	public static final String KEY_PREF_HAPTIC_FEEDBACK = "pref_enableHapticFeedback";
+    //public static final String KEY_SHOW_QSB = "pref_showQsb";
+    //public static final String KEY_SHOW_QSB = "pref_showQsb";
+	
+	
+	public static boolean enableHapticFeedback(Context context){
+        return Utilities.getPrefs(context).getBoolean(KEY_PREF_HAPTIC_FEEDBACK, false);
+    }
+	
+	public static boolean enableLegacyFolderIcon(Context context){
+        return Utilities.getPrefs(context).getBoolean(KEY_TOGGLE_LEGACY_FOLDER_ICON, FeatureFlags.pixelated_LEGACY_FOLDER_ICON);
+    }
+	
     public static boolean isPropertyEnabled(String propertyName) {
         return Log.isLoggable(propertyName, Log.VERBOSE);
     }

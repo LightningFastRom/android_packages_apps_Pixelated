@@ -17,26 +17,99 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
+    <!-- Gerinal Setting -->
+    <PreferenceCategory android:title="@string/gerinal_setting_title">
+
+        <Preference
+            android:key="pref_enableNotificationBadges"
+            android:title="@string/notification_badges_title"
+            android:summary="@string/notification_badges_title_summary" />
+
+    </PreferenceCategory>
+
+    <!--Layout Setting -->
+    <PreferenceCategory android:title="@string/layout_setting_title">
+
+        <!--Todo: need implementing -->
+        <ListPreference
+            android:dialogTitle="@string/select_layout_title"
+            android:entries="@array/layout_list_titles"
+            android:entryValues="@array/layout_list_values"
+            android:key="pref_selectLayout"
+			android:defaultValue="Apple"
+            android:summary="@string/selected_layout"
+            android:title="@string/select_layout_title"/>
+
+    </PreferenceCategory>
+
+    <!--Apprence Setting -->
+    <PreferenceCategory android:title="@string/apprence_setting_title">
+
+        <Preference
             android:key="pref_iconPacks"
             android:title="@string/icon_pack_title"
             android:icon="@drawable/icon_pack" />
-    
-    // Disable Google Now as it broken Todo: Need fixing
-    <!--<SwitchPreference
+
+        <!-- Disable Google Now as it broken Todo: Need fixing -->
+        <SwitchPreference
             android:key="pref_showGoogleApp"
             android:title="@string/show_google_app_title"
-            android:summary="@string/show_google_app_summary" />-->
+            android:summary="@string/show_google_app_summary" />
+
+        <!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_showQsb"
+            android:title="@string/show_Qsb_title"
+            android:summary="@string/show_Qsb_summary" />
+
+        <!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_showAllAppIcon"
+            android:title="@string/show_all_app_icon_title"
+            android:summary="@string/show_all_app_icon_summary" />
+
+        <!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_toggleLightStausbar"
+            android:title="@string/toggle_light_stausbar_title"
+            android:summary="@string/toggle_light_stausbar_summary" />
+
+        <!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_toggleLegacyFolderIcon"
+            android:title="@string/show_google_app_title"
+            android:summary="@string/show_google_app_summary" />
+
+        <!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_setDockOpacity"
+            android:title="@string/set_dock_opacity_title"
+            android:summary="@string/set_dock_opacity_summary" />
+
+	</PreferenceCategory>
+
+    <!--Behavior Setting -->
+    <PreferenceCategory android:title="@string/behavior_setting_title">
+		<!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_togglePulldownSearch"
+            android:title="@string/toggle_pulldown_search_title"
+            android:summary="@string/toggle_pulldown_search_summary" />
+		
+		<!-- Todo: need implementing -->
+        <SwitchPreference
+            android:key="pref_enableHapticFeedback"
+            android:title="@string/toggle_haptic_feedback_title"
+            android:summary="@string/toggle_haptic_feedback_summary" 
+			android:defaultValue="false"
+        	android:persistent="true" />   
+ 
+	</PreferenceCategory>
 
     <SwitchPreference
             android:key="pref_allowRotation"
             android:title="@string/allow_rotation_title"
             android:defaultValue="@bool/allow_rotation"
             android:persistent="true" />
-
-    <Preference
-            android:key="pref_enableNotificationBadges"
-            android:title="@string/notification_badges_title"
-            android:summary="@string/notification_badges_title_summary" />
 
 </PreferenceScreen>

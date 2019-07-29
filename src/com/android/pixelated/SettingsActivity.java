@@ -30,12 +30,14 @@ import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.net.Uri;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.preference.ListPreference;
 import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.provider.Settings.System;
@@ -68,7 +70,16 @@ public class SettingsActivity extends Activity {
         private IconsHandler mIconsHandler;
         private PackageManager mPackageManager;
         private Preference mIconPack;
-
+		
+		private SwitchPreference mShowQsb;
+        private ListPreference mSelectLayout;
+        private SwitchPreference mShowAllAppIcon;
+		private SwitchPreference mToggleLightStausbar;
+        private SwitchPreference mToggleLegacyFolderIcon;
+        private SwitchPreference mSetDockOpacityn;
+		private SwitchPreference mTogglePulldownSearch;
+        private SwitchPreference mHapticFeedback;
+		
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -86,11 +97,14 @@ public class SettingsActivity extends Activity {
             mIconPack = (Preference) findPreference(Utilities.KEY_ICON_PACK);
 			
 			// Disable Google Now as it broken Todo: Need fixing
-            /*boolean state = Utilities.getPrefs(getActivity()).getBoolean(
-                    Utilities.ACTION_LEFT_PAGE_CHANGED, true);
+            //boolean state = Utilities.getPrefs(getActivity()).getBoolean(
+            //        Utilities.ACTION_LEFT_PAGE_CHANGED, true);
             mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
-            mShowGoogleApp.setChecked(false);*/
+            //mShowGoogleApp.setChecked(state);
+			mShowGoogleApp.setEnabled(false);
+			mShowGoogleApp.setChecked(false)
 		
+			/* Todo: need fixing */
             mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
             // Load the switch preference if the service isn't enabled in notification access settings.
             /*if (isNotificationBadgeEnabled()) {
@@ -100,7 +114,51 @@ public class SettingsActivity extends Activity {
                 }
             }*/
 			
-            // Setup allow rotation preference
+			/* Todo: need implementing */
+			mShowQsb= (SwitchPreference) findPreference(Utilities.KEY_SHOW_QSB);
+			mShowQsb.setEnabled(false);
+			mShowQsb.setChecked(false);
+			
+			/* Todo: need implementing */
+			mSelectLayout = (ListPreference) findPreference(Utilities.KEY_SELECT_LAYOUT);
+			mSelectLayout.setEnabled(false);
+			mSelectLayout.setChecked(false);
+			
+			/* Todo: need implementing */
+			mShowAllAppIcon = (SwitchPreference) findPreference(Utilities.KEY_SHOW_ALL_APP_ICON);
+			mShowAllAppIcon.setEnabled(false);
+			mShowAllAppIcon.setChecked(false);
+			
+			/* Todo: need implementing */
+			mToggleLightStausbar = (SwitchPreference) findPreference(Utilities.KEY_TOGGLE_LIGHT_STATUSBAR);
+			mToggleLightStausbar.setEnabled(false);
+			mToggleLightStausbar.setChecked(false);
+			
+			/* Todo: need implementing */
+			mToggleLegacyFolderIcon = (SwitchPreference) findPreference(Utilities.KEY_TOGGLE_LEGACY_FOLDER_ICON);
+			mToggleLegacyFolderIcon.setEnabled(false);
+			mToggleLegacyFolderIcon.setChecked(false);
+			
+			/* Todo: need implementing */
+			mSetDockOpacity = (SwitchPreference) findPreference(Utilities.KEY_SET_DOCK_OPACITY);
+			mSetDockOpacity.setEnabled(false);
+			mSetDockOpacity.setChecked(false);
+			
+			/* Todo: need implementing */
+			mTogglePulldownSearch = (SwitchPreference) findPreference(Utilities.KEY_TOGGLE_PULLDOWN_SEARCH);
+			mTogglePulldownSearch.setEnabled(false);
+			mTogglePulldownSearch.setChecked(false);
+			
+			/* Todo: need implementing */
+			mHapticFeedback = (SwitchPreference) findPreference(Utilities.KEY_PREF_HAPTIC_FEEDBACK);
+			mHapticFeedback.setEnabled(false);
+			mHapticFeedback.setChecked(false);
+			// Load the switch preference if the service isn't enabled in notification access settings.
+			if (hasVibratorService()) {
+				preference.removePreference(mHapticFeedback);
+			}
+            
+			// Setup allow rotation preference
             Preference rotationPref = findPreference(Utilities.ALLOW_ROTATION_PREFERENCE_KEY);
             if (getResources().getBoolean(R.bool.allow_rotation)) {
                 // Launcher supports rotation by default. No need to show this setting.
@@ -145,10 +203,30 @@ public class SettingsActivity extends Activity {
                 mIconsHandler.showDialog(getActivity());
                 return true;
             }
-            if (pref == mNotificationBadges) {
+            if (pref == mShowQsb) {
                 startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
                 return true;
             }
+			/*if (pref == mSelectLayout) {
+                startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                return true;
+            }
+			if (pref == mShowAllAppIcon) {
+                startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                return true;
+            }
+			if (pref == mSetDockOpacity) {
+                startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                return true;
+            }
+			if (pref == mTogglePulldownSearch) {
+                startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                return true;
+            }
+			if (pref == mHapticFeedback) {
+                startActivity(new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS));
+                return true;
+            }*/
             // Disable Google Now as it broken Todo: Need fixing
             /*if (pref == mShowGoogleApp) {
 				if (!Settings.canDrawOverlays(this)) {
@@ -188,7 +266,22 @@ public class SettingsActivity extends Activity {
             }
             mIconPack.setSummary(iconPack);
         }
-
+		
+		/**
+         * Checks whether device has Vibrator Service.
+         * @return True if enabled, false otherwise.
+         */
+		 private boolean hasVibratorService(){
+			Vibrator v = (Vibrator) getActivity().getApplicationContext().getSystemService(getActivity().getApplicationContext().VIBRATOR_SERVICE);
+			if(v == null){
+				//no haptic feedback is possible
+				return true;
+			}else{
+				//haptic feedback is a possible feature
+				return false;
+			}
+		 }
+		 
         /**
          * Checks whether the notification badge service is enabled.
          * @return True if enabled, false otherwise.

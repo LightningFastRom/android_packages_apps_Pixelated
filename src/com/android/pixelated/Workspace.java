@@ -91,6 +91,7 @@ import com.android.pixelated.util.VerticalFlingDetector;
 import com.android.pixelated.util.WallpaperOffsetInterpolator;
 import com.android.pixelated.widget.PendingAddShortcutInfo;
 import com.android.pixelated.widget.PendingAddWidgetInfo;
+import com.android.pixelated.Utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -362,7 +363,7 @@ public class Workspace extends PagedView
                 res.getInteger(R.integer.config_workspaceOverviewShrinkPercentage) / 100f;
 
         setOnHierarchyChangeListener(this);
-        setHapticFeedbackEnabled(false);
+        setHapticFeedbackEnabled(Utilities.enableHapticFeedback(mLauncher));
 
         initWorkspace();
 
@@ -1208,7 +1209,7 @@ public class Workspace extends PagedView
         }
 
         if (!(child instanceof Folder)) {
-            child.setHapticFeedbackEnabled(false);
+            child.setHapticFeedbackEnabled(Utilities.enableHapticFeedback(mLauncher));
             child.setOnLongClickListener(mLongClickListener);
         }
         if (child instanceof DropTarget) {
