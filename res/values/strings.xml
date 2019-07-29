@@ -287,7 +287,7 @@
 	<!-- Setting -->
 	<!-- Setting Catgoeris -->
 	<!-- Gerinal Setting -->
-    <string name="gerinal_setting_title">Gerinal</string>
+    <string name="general_setting_title">General</string>
 
 	<!-- Layout -->
     <string name="layout_setting_title">Layout</string>
