@@ -102,7 +102,7 @@ public class SettingsActivity extends Activity {
             mShowGoogleApp = (SwitchPreference) findPreference(Utilities.KEY_SHOW_GOOGLE_APP);
             //mShowGoogleApp.setChecked(state);
 			mShowGoogleApp.setEnabled(false);
-			mShowGoogleApp.setChecked(false)
+			mShowGoogleApp.setChecked(false);
 		
 			/* Todo: need fixing */
             mNotificationBadges = (Preference) findPreference(Utilities.KEY_NOTIFICATION_BADGES);
