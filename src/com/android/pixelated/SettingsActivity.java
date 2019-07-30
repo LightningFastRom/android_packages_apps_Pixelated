@@ -145,7 +145,6 @@ public class SettingsActivity extends Activity {
             mDefaultIconPack = getString(R.string.default_iconpack_title);
             mIconsHandler = IconCache.getIconsHandler(getActivity().getApplicationContext());
             mIconPack = (Preference) findPreference(Utilities.KEY_ICON_PACK);
-			reloadIconPackAppIcon();
 			/*Ststusbar Prefrences*/
 			/* Todo: need implementing */
 			mToggleLightStausbar = (SwitchPreference) findPreference(Utilities.KEY_TOGGLE_LIGHT_STATUSBAR);
@@ -203,6 +202,7 @@ public class SettingsActivity extends Activity {
                 rotationPref.setDefaultValue(Utilities.getAllowRotationDefaultValue(getActivity()));
             }
             reloadIconPackSummary();
+            reloadIconPackAppIcon();
         }
 
         @Override
