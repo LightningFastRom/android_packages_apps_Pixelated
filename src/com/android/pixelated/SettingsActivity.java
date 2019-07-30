@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.net.Uri;
+import android.graphics.drawable.Drawable;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -144,6 +145,7 @@ public class SettingsActivity extends Activity {
             mDefaultIconPack = getString(R.string.default_iconpack_title);
             mIconsHandler = IconCache.getIconsHandler(getActivity().getApplicationContext());
             mIconPack = (Preference) findPreference(Utilities.KEY_ICON_PACK);
+			reloadIconPackAppIcon();
 			/*Ststusbar Prefrences*/
 			/* Todo: need implementing */
 			mToggleLightStausbar = (SwitchPreference) findPreference(Utilities.KEY_TOGGLE_LIGHT_STATUSBAR);
@@ -276,6 +278,7 @@ public class SettingsActivity extends Activity {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             reloadIconPackSummary();
+			reloadIconPackAppIcon();
         }
 
         private void reloadIconPackSummary() {
@@ -292,6 +295,23 @@ public class SettingsActivity extends Activity {
                 }
             }
             mIconPack.setSummary(iconPack);
+        }
+		
+		private void reloadIconPackAppIcon() {
+            ApplicationInfo info = null;
+			Drawable mIconPackAppIcon = null;
+            String iconPack = PreferenceManager.getDefaultSharedPreferences(getActivity())
+                    .getString(Utilities.KEY_ICON_PACK, mDefaultIconPack);
+            if (!mIconsHandler.isDefaultIconPack()) {
+                try {
+                    info = mPackageManager.getApplicationInfo(iconPack, 0);
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+                if (info != null) {
+                    mIconPackAppIcon = mPackageManager.getApplicationIcon(info);
+                }
+            }
+			mIconPack.setIcon(mIconPackAppIcon);
         }
 		
 		/**
