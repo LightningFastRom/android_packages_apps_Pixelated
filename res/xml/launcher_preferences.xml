@@ -19,7 +19,7 @@
 
     <!-- Gerinal Setting -->
     <PreferenceCategory 
-		android:title="@string/gerinal_category_title"
+		android:title="@string/general_category_title"
 		android:key="cat_general" >
 
         <Preference
